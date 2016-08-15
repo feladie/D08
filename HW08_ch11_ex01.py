@@ -10,16 +10,24 @@
 
 # Body
 def store_to_dict():
-    pass
+	""" Reads the words in words.txt and stores them as keys in a dictionary.
+	"""
+	d = dict()
+	with open('words.txt', 'r') as f:
+		for each_line in f:
+			words = each_line.split()
+			for each_word in words:
+				d[each_word] = ''
+	return d
 
 
 ###############################################################################
 def main():  # DO NOT CHANGE BELOW
-    words_dict = store_to_dict()
-    if "this" in words_dict:
-        print("Yup.")
-    if "qwertyuiop" in words_dict:
-        print("Hmm.")
+	words_dict = store_to_dict()
+	if "this" in words_dict:
+		print("Yup.")
+	if "qwertyuiop" in words_dict:
+		print("Hmm.")
 
 if __name__ == '__main__':
-    main()
+	main()

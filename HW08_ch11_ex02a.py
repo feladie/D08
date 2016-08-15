@@ -29,15 +29,13 @@ pledge_histogram = {}
 def histogram_old(s):
     d = dict()
     for c in s:
-        if c not in d:
-            d[c] = 1
-        else:
-            d[c] += 1
+        count = d.get(c, 0)
+        d[c] = count + 1
     return d
 
 
 def histogram_new(s):
-    ...
+    return histogram_old(s)
 
 
 def get_pledge_list():
@@ -45,8 +43,13 @@ def get_pledge_list():
     the order it appears in the original file. returns the list.
     """
     # Your code here.
-    pass
-    # return pledge_list (uncomment this)
+    pledge_list = []
+    with open('pledge.txt', 'r') as f:
+        for each_line in f:
+            words = each_line.split()
+            for each_word in words:
+                pledge_list.append(each_word)
+    return pledge_list
 
 
 ###############################################################################
